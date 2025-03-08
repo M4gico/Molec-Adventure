@@ -1,58 +1,113 @@
 using UnityEngine;
 
-public class PlaceBlocks : MonoBehaviour {
-    public GameObject blockPrefabSchema;
-    public GameObject blockPrefabRender;
+public class PlaceBlocks : MonoBehaviour
+{
+    public GameObject availableBlocksGO;
+    public GameObject placedBlocksGO;
 
     private Vector3 cursorPosition = Vector3.zero;
-    private GameObject placingBlockInstance = null;
+    private GameObject selectedBlock = null;
 
-    void Start() {
-        // Instantiate block prefab schema
-        placingBlockInstance = Instantiate(blockPrefabSchema, Vector3.zero, Quaternion.identity);
-        placingBlockInstance.transform.localScale = new Vector3(0.37f, 0.37f, 1.0f);
-    }
 
-    void Update() {
+    void Update()
+    {
+        // Select block
+        if (selectedBlock == null && Input.GetMouseButtonDown(0))
         {
-            // Get mouse position
-            Vector3 mousePos = Input.mousePosition;
-
-            // Convert mouse position to world position
-            Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
-
-            // Round world position to nearest cell
-            float cell_size = 10f / (3f * 3f * 3f);
-            worldPos.x = Mathf.Round(worldPos.x / cell_size) * cell_size;
-            worldPos.y = Mathf.Round(worldPos.y / cell_size) * cell_size;
-            worldPos.z = -10.0f;
-
-            // Set block position to cursor position
-            cursorPosition = worldPos;
-            if (placingBlockInstance != null)
-                placingBlockInstance.transform.position = cursorPosition;
-        }
-
-        {
-            // Place block
-            if (Input.GetMouseButtonDown(0)) {
-                if (placingBlockInstance == null)
-                    return;
-
-                // Destroy block prefab schema
-                Destroy(placingBlockInstance);
-
-                // Instantiate block prefab render
-                Vector3 pos = new Vector3(cursorPosition.x, cursorPosition.y, -10.0f);
-                GameObject renderBlock = Instantiate(blockPrefabRender, pos, Quaternion.identity);
-                renderBlock.transform.localScale = new Vector3(0.37f, 0.37f, 1.0f);
+            if (select_block())
+            {
+                return;
             }
         }
+
+        // Show hover block
+        if (selectedBlock != null)
+        {
+            show_hover_block();
+        }
+
+        // Place block
+        if (selectedBlock != null && Input.GetMouseButtonDown(0))
+        {
+            place_block();
+        }
     }
 
-    void OnDrawGizmos() {
-        // // Draw cursor position
-        // Gizmos.color = Color.red;
-        // Gizmos.DrawWireCube(cursorPosition, Vector3.one);
+    bool select_block()
+    {
+        // Get mouse position
+        Vector3 mousePos = Input.mousePosition;
+
+        // Convert mouse position to world position
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+
+        // Check if mouse is over a block in the available blocks
+        for (int i = 0; i < availableBlocksGO.transform.childCount; i++)
+        {
+            if (select_child(availableBlocksGO.transform.GetChild(i), worldPos)) {
+                return true;
+            }
+        }
+        // Check if mouse is over a block in the placed blocks
+        for (int i = 0; i < placedBlocksGO.transform.childCount; i++)
+        {
+            if (select_child(placedBlocksGO.transform.GetChild(i), worldPos))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    bool select_child(Transform block, Vector3 worldPos)
+    {
+        worldPos.z = block.position.z;
+        if (block.GetChild(0).transform.GetComponent<Collider2D>().bounds.Contains(worldPos))
+        {
+            // Instantiate block prefab schema
+            selectedBlock = block.gameObject;
+            selectedBlock.transform.parent = transform;
+            selectedBlock.transform.localScale = new Vector3(0.37f, 0.37f, 1.0f);
+
+            // Change sprite renderer material
+            Material wireframeMaterial = selectedBlock.GetComponent<BlockGOHolder>().wireframeMaterial;
+            selectedBlock.GetComponentsInChildren<SpriteRenderer>()[0].material = wireframeMaterial;
+            return true;
+        }
+        return false;
+    }
+
+    void show_hover_block()
+    {
+        // Get mouse position
+        Vector3 mousePos = Input.mousePosition;
+
+        // Convert mouse position to world position
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+
+        // Round world position to nearest cell
+        float cell_size_x = 16f / 9f * 10f / (4f * 3f * 3f);
+        float cell_size_y = 10f / (3f * 3f * 3f);
+        worldPos.x = Mathf.Round(worldPos.x / cell_size_x) * cell_size_x;
+        worldPos.y = Mathf.Round(worldPos.y / cell_size_y) * cell_size_y;
+        worldPos.z = -10.0f;
+
+        // Set block position to cursor position
+        cursorPosition = worldPos;
+        if (selectedBlock != null)
+            selectedBlock.transform.position = cursorPosition;
+    }
+
+    void place_block()
+    {
+        // Place block
+        selectedBlock.layer = 6;
+
+        // Change sprite renderer material
+        Material renderMaterial = selectedBlock.GetComponent<BlockGOHolder>().renderMaterial;
+        selectedBlock.GetComponentsInChildren<SpriteRenderer>()[0].material = renderMaterial;
+        selectedBlock.transform.parent = placedBlocksGO.transform;
+
+        selectedBlock = null;
     }
 }

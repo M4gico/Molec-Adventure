@@ -4,6 +4,10 @@ public class DrawGrid : MonoBehaviour
 {
     public Material lineMaterial;
 
+    public Color[] colors = new Color[3];
+
+    public GameObject debugLinesGO;
+
     private void Start()
     {
 
@@ -32,8 +36,8 @@ public class DrawGrid : MonoBehaviour
                 // Set line renderer properties
                 lineRenderer.startWidth = 0.08f;
                 lineRenderer.endWidth = 0.08f;
-                lineRenderer.startColor = Color.white;
-                lineRenderer.endColor = Color.white;
+                lineRenderer.startColor = colors[0];
+                lineRenderer.endColor = colors[0];
                 not_set = false;
                 level = -3.0f;
             }
@@ -43,8 +47,8 @@ public class DrawGrid : MonoBehaviour
                 // Set line renderer properties
                 lineRenderer.startWidth = 0.05f;
                 lineRenderer.endWidth = 0.05f;
-                lineRenderer.startColor = Color.gray;
-                lineRenderer.endColor = Color.gray;
+                lineRenderer.startColor = colors[1];
+                lineRenderer.endColor = colors[1];
                 not_set = false;
                 level = -2.0f;
             }
@@ -54,8 +58,8 @@ public class DrawGrid : MonoBehaviour
                 // Set line renderer properties
                 lineRenderer.startWidth = 0.02f;
                 lineRenderer.endWidth = 0.02f;
-                lineRenderer.startColor = Color.gray;
-                lineRenderer.endColor = Color.gray;
+                lineRenderer.startColor = colors[2];
+                lineRenderer.endColor = colors[2];
                 level = -1.0f;
             }
 
@@ -73,6 +77,13 @@ public class DrawGrid : MonoBehaviour
                 lineRenderer.SetPosition(1, to_world(new Vector3(4 * 3 * 3, it, 0)));
             }
             lineRendererObject.transform.position = new Vector3(0, 0, z);
+        }
+
+        // Fix lines sprites
+        for (int i = 0; i < debugLinesGO.transform.childCount; i++)
+        {
+            Transform line = debugLinesGO.transform.GetChild(i);
+            line.GetComponent<SpriteRenderer>().color = colors[0];
         }
     }
 
