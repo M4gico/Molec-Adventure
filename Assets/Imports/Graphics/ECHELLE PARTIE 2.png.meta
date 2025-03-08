@@ -1,0 +1,481 @@
+fileFormatVersion: 2
+guid: 8c7101abca1530d4997a4a778b3a382d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8591931968293207048
+    second: ECHELLE PARTIE 2_0
+  - first:
+      213: -3223010648771295032
+    second: ECHELLE PARTIE 2_1
+  - first:
+      213: -495677155746293290
+    second: ECHELLE PARTIE 2_2
+  - first:
+      213: 2406104990149991301
+    second: ECHELLE PARTIE 2_3
+  - first:
+      213: 5523868603555774576
+    second: ECHELLE PARTIE 2_4
+  - first:
+      213: -8590203123269810781
+    second: ECHELLE PARTIE 2_5
+  - first:
+      213: 3804235470138017636
+    second: ECHELLE PARTIE 2_6
+  - first:
+      213: -9082727571370282074
+    second: ECHELLE PARTIE 2_7
+  - first:
+      213: -750957722380633635
+    second: ECHELLE PARTIE 2_8
+  - first:
+      213: -3354612031822216149
+    second: ECHELLE PARTIE 2_9
+  - first:
+      213: 1416159097215104270
+    second: ECHELLE PARTIE 2_10
+  - first:
+      213: 2362725726483345731
+    second: ECHELLE PARTIE 2_11
+  - first:
+      213: -7391405501845326583
+    second: ECHELLE PARTIE 2_12
+  - first:
+      213: 8802767590802493430
+    second: ECHELLE PARTIE 2_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ECHELLE PARTIE 2_0
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 1613
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80c70786a9cac3770800000000000000
+      internalID: 8591931968293207048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ECHELLE PARTIE 2_1
+      rect:
+        serializedVersion: 2
+        x: 1450
+        y: 1529
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c88fa424e09543d0800000000000000
+      internalID: -3223010648771295032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ECHELLE PARTIE 2_2
+      rect:
+        serializedVersion: 2
+        x: 1451
+        y: 1445
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d95778c0400f19f0800000000000000
+      internalID: -495677155746293290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ECHELLE PARTIE 2_3
+      rect:
+        serializedVersion: 2
+        x: 1451
+        y: 1361
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58b5f2e8db3346120800000000000000
+      internalID: 2406104990149991301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ECHELLE PARTIE 2_4
+      rect:
+        serializedVersion: 2
+        x: 1451
+        y: 1277
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07000ec6a39b8ac40800000000000000
+      internalID: 5523868603555774576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ECHELLE PARTIE 2_5
+      rect:
+        serializedVersion: 2
+        x: 1451
+        y: 1193
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a54d01b5c779c880800000000000000
+      internalID: -8590203123269810781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ECHELLE PARTIE 2_6
+      rect:
+        serializedVersion: 2
+        x: 1450
+        y: 1109
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 467848f110c5bc430800000000000000
+      internalID: 3804235470138017636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ECHELLE PARTIE 2_7
+      rect:
+        serializedVersion: 2
+        x: 1450
+        y: 1025
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a3f3dc656ba3f180800000000000000
+      internalID: -9082727571370282074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ECHELLE PARTIE 2_8
+      rect:
+        serializedVersion: 2
+        x: 1450
+        y: 941
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd97a242eef0495f0800000000000000
+      internalID: -750957722380633635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ECHELLE PARTIE 2_9
+      rect:
+        serializedVersion: 2
+        x: 1450
+        y: 856
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b244cfb61260271d0800000000000000
+      internalID: -3354612031822216149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ECHELLE PARTIE 2_10
+      rect:
+        serializedVersion: 2
+        x: 1450
+        y: 773
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e05b1fe123537a310800000000000000
+      internalID: 1416159097215104270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ECHELLE PARTIE 2_11
+      rect:
+        serializedVersion: 2
+        x: 1450
+        y: 689
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34177bca7861ac020800000000000000
+      internalID: 2362725726483345731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ECHELLE PARTIE 2_12
+      rect:
+        serializedVersion: 2
+        x: 1450
+        y: 604
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90534af7bd37c6990800000000000000
+      internalID: -7391405501845326583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ECHELLE PARTIE 2_13
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 522
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ff8a1a1c76b92a70800000000000000
+      internalID: 8802767590802493430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ECHELLE PARTIE 2_0: 8591931968293207048
+      ECHELLE PARTIE 2_1: -3223010648771295032
+      ECHELLE PARTIE 2_10: 1416159097215104270
+      ECHELLE PARTIE 2_11: 2362725726483345731
+      ECHELLE PARTIE 2_12: -7391405501845326583
+      ECHELLE PARTIE 2_13: 8802767590802493430
+      ECHELLE PARTIE 2_2: -495677155746293290
+      ECHELLE PARTIE 2_3: 2406104990149991301
+      ECHELLE PARTIE 2_4: 5523868603555774576
+      ECHELLE PARTIE 2_5: -8590203123269810781
+      ECHELLE PARTIE 2_6: 3804235470138017636
+      ECHELLE PARTIE 2_7: -9082727571370282074
+      ECHELLE PARTIE 2_8: -750957722380633635
+      ECHELLE PARTIE 2_9: -3354612031822216149
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
