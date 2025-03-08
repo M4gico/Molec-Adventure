@@ -4,6 +4,10 @@ public class PlaceBlocks : MonoBehaviour
 {
     public GameObject availableBlocksGO;
     public GameObject placedBlocksGO;
+    public GameObject blockMenu;
+
+    public float deltaMouseX;
+    public float deltaMouseY;
 
     private Vector3 cursorPosition = Vector3.zero;
     private GameObject selectedBlock = null;
@@ -81,6 +85,8 @@ public class PlaceBlocks : MonoBehaviour
     {
         // Get mouse position
         Vector3 mousePos = Input.mousePosition;
+        mousePos.x += deltaMouseX;
+        mousePos.y += deltaMouseY;
 
         // Convert mouse position to world position
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
@@ -100,14 +106,53 @@ public class PlaceBlocks : MonoBehaviour
 
     void place_block()
     {
-        // Place block
-        selectedBlock.layer = 6;
+        bool collidesWithMenu = false;
+        {
+            // Get mouse position
+            Vector3 mousePos = Input.mousePosition;
 
-        // Change sprite renderer material
-        Material renderMaterial = selectedBlock.GetComponent<BlockGOHolder>().renderMaterial;
-        selectedBlock.GetComponentsInChildren<SpriteRenderer>()[0].material = renderMaterial;
-        selectedBlock.transform.parent = placedBlocksGO.transform;
+            // Convert mouse position to world position
+            Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
 
-        selectedBlock = null;
+            // Check for collision
+            for (int i = 0; i < blockMenu.transform.childCount; i++)
+            {
+                // CHeck if has collision
+                Transform child = blockMenu.transform.GetChild(i);
+                if (!child.TryGetComponent<Collider2D>(out Collider2D collider))
+                {
+                    continue;
+                }
+
+                worldPos.z = child.position.z;
+                if (child.GetComponent<Collider2D>().bounds.Contains(worldPos))
+                {
+                    collidesWithMenu = true;
+                    break;
+                }
+            }
+        }
+
+        if (collidesWithMenu)
+        {
+            // Set block as child of block menu
+            selectedBlock.transform.parent = availableBlocksGO.transform;
+            selectedBlock = null;
+        }
+        else {
+            // Place block
+            selectedBlock.layer = 6;
+
+            // Change sprite renderer material
+            Material renderMaterial = selectedBlock.GetComponent<BlockGOHolder>().renderMaterial;
+            selectedBlock.GetComponentsInChildren<SpriteRenderer>()[0].material = renderMaterial;
+            selectedBlock.transform.parent = placedBlocksGO.transform;
+
+            selectedBlock = null;
+        }
+
+
+
+
     }
 }
