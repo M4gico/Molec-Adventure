@@ -9,16 +9,16 @@ public class MunchHealth : MonoBehaviour
     private float currentHealth;
     private SpriteRenderer spriteRenderer;
 
-    public static MunchHealth instance;
+    //public static MunchHealth instance;
 
     private void Awake()
     {
-        if(instance != null)
+        /*if(instance != null)
         {
             Debug.LogWarning("More than one instance of MunchHealth found!");
             return;
         }
-        instance = this;
+        instance = this;*/
 
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
