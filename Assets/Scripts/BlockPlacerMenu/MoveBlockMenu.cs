@@ -7,12 +7,13 @@ public class MoveBlockMenu : MonoBehaviour
     public float openValueX;
     public float speed;
 
-    private bool isOpen = false;
+    private bool firstOpen = true;
+    private bool isOpen = true;
     private Vector3 targetPosition;
 
     void Start()
     {
-        blockMenuGO.transform.position = new Vector3(closedValueX, blockMenuGO.transform.position.y, blockMenuGO.transform.position.z);
+        blockMenuGO.transform.position = new Vector3(openValueX, blockMenuGO.transform.position.y, blockMenuGO.transform.position.z);
         targetPosition = blockMenuGO.transform.position;
     }
 
@@ -53,24 +54,31 @@ public class MoveBlockMenu : MonoBehaviour
             }
 
             // Handle menu movement
-            if (collides) {
-                if (!isOpen) {
+            if (collides && firstOpen)
+            {
+                firstOpen = false;
+            }
+            if (collides && !firstOpen)
+            {
+                if (!isOpen)
+                {
                     // Open menu by lerping
                     targetPosition = new Vector3(openValueX, blockMenu.position.y, blockMenu.position.z);
                     isOpen = true;
                 }
-                else {
+                else
+                {
                     // Keep menu open
                     targetPosition = new Vector3(openValueX, blockMenu.position.y, blockMenu.position.z);
                 }
             }
-            else {
-                if (isOpen) {
-                    // Close menu by lerping
-                    targetPosition = new Vector3(closedValueX, blockMenu.position.y, blockMenu.position.z);
-                    if (blockMenu.position.x <= closedValueX + 0.1f) {
-                        isOpen = false;
-                    }
+            else if (isOpen && !firstOpen)
+            {
+                // Close menu by lerping
+                targetPosition = new Vector3(closedValueX, blockMenu.position.y, blockMenu.position.z);
+                if (blockMenu.position.x <= closedValueX + 0.1f)
+                {
+                    isOpen = false;
                 }
             }
         }
