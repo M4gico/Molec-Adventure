@@ -10,6 +10,7 @@ public class PlaceBlocks : MonoBehaviour {
     void Start() {
         // Instantiate block prefab schema
         placingBlockInstance = Instantiate(blockPrefabSchema, Vector3.zero, Quaternion.identity);
+        placingBlockInstance.transform.localScale = new Vector3(0.37f, 0.37f, 1.0f);
     }
 
     void Update() {
@@ -20,9 +21,10 @@ public class PlaceBlocks : MonoBehaviour {
             // Convert mouse position to world position
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
 
-            // Round world position to nearest integer
-            worldPos.x = Mathf.Round(worldPos.x);
-            worldPos.y = Mathf.Round(worldPos.y);
+            // Round world position to nearest cell
+            float cell_size = 10f / (3f * 3f * 3f);
+            worldPos.x = Mathf.Round(worldPos.x / cell_size) * cell_size;
+            worldPos.y = Mathf.Round(worldPos.y / cell_size) * cell_size;
             worldPos.z = -10.0f;
 
             // Set block position to cursor position
@@ -42,7 +44,8 @@ public class PlaceBlocks : MonoBehaviour {
 
                 // Instantiate block prefab render
                 Vector3 pos = new Vector3(cursorPosition.x, cursorPosition.y, -10.0f);
-                Instantiate(blockPrefabRender, pos, Quaternion.identity);
+                GameObject renderBlock = Instantiate(blockPrefabRender, pos, Quaternion.identity);
+                renderBlock.transform.localScale = new Vector3(0.37f, 0.37f, 1.0f);
             }
         }
     }

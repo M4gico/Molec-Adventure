@@ -16,8 +16,8 @@ public class DrawGrid : MonoBehaviour
         // Get go transform
         Transform transform = GetComponent<Transform>();
 
-        int max = axis == 0 ? 9 * 3 * 3 : 3 * 3 * 3;
-        for (int it = 0; it < max; it++)
+        int max = axis == 0 ? 4 * 3 * 3 : 3 * 3 * 3;
+        for (int it = 0; it < max + 1; it++)
         {
             // Create line renderer object
             GameObject lineRendererObject = new GameObject("LineRenderer");
@@ -70,7 +70,7 @@ public class DrawGrid : MonoBehaviour
             else
             {
                 lineRenderer.SetPosition(0, to_world(new Vector3(0, it, 0)));
-                lineRenderer.SetPosition(1, to_world(new Vector3(9 * 3 * 3, it, 0)));
+                lineRenderer.SetPosition(1, to_world(new Vector3(4 * 3 * 3, it, 0)));
             }
             lineRendererObject.transform.position = new Vector3(0, 0, z);
         }
@@ -79,8 +79,8 @@ public class DrawGrid : MonoBehaviour
     // Convert 2D position to 3D world position
     Vector3 to_world(Vector3 position)
     {
-        Vector3 wsp = new Vector3(position.x / (4 * 3 * 3) * 10 * 4 / 3, position.y / (3 * 3 * 3) * 10, 0);
-        wsp = wsp - new Vector3(10, 5, 0);
+        Vector3 wsp = new Vector3(position.x / (4.0f * 3.0f * 3.0f * 0.999f) * 10.0f * 16.0f / 9.0f, ((float) (position.y / (3 * 3 * 3) * 10)) * 0.999f, 0);
+        wsp = wsp - new Vector3(5.0f * 16.0f/9.0f, 5, 0);
         return wsp;
     }
 }
