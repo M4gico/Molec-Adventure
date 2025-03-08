@@ -48,7 +48,7 @@ public class MunchHealth : MonoBehaviour
 
     private void Die()
     {
-        currentHealth = 0;
+        Destroy(gameObject);
         Debug.Log("Munch died!");
     }
 

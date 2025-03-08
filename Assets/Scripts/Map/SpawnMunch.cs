@@ -16,7 +16,7 @@ public class SpawnMunch : MonoBehaviour
     {
         for(int i = 0; i < numberSpawn; i++)
         {
-            Instantiate(munchPrefab, transform.position, Quaternion.identity);
+            Instantiate(munchPrefab, transform.position, Quaternion.identity, transform);
             yield return new WaitForSeconds(spawnTime);
         }
     }
