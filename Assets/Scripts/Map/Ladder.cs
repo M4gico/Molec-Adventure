@@ -6,7 +6,8 @@ public class Ladder : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            MunchMovementV2.instance.isOnLadder = true;
+            collision.GetComponent<MunchMovementV2>().isOnLadder = true;
+            //MunchMovementV2.instance.isOnLadder = true;
         }
     }
 
@@ -14,7 +15,8 @@ public class Ladder : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            MunchMovementV2.instance.isOnLadder = false;
+            collision.GetComponent<MunchMovementV2>().isOnLadder = false;
+            //MunchMovementV2.instance.isOnLadder = false;
         }
     }
 }
