@@ -9,7 +9,7 @@ public class SpawnMunch : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SpawnEntities());
+        startSpawn();
     }
 
     private IEnumerator SpawnEntities()
@@ -19,5 +19,15 @@ public class SpawnMunch : MonoBehaviour
             Instantiate(munchPrefab, transform.position, Quaternion.identity, transform);
             yield return new WaitForSeconds(spawnTime);
         }
+    }
+
+    public void startSpawn()
+    {
+        StartCoroutine(SpawnEntities());
+    }
+
+    public void stopSpawn()
+    {
+        StopAllCoroutines();
     }
 }
