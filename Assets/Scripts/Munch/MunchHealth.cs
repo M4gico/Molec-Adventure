@@ -13,13 +13,6 @@ public class MunchHealth : MonoBehaviour
 
     private void Awake()
     {
-        /*if(instance != null)
-        {
-            Debug.LogWarning("More than one instance of MunchHealth found!");
-            return;
-        }
-        instance = this;*/
-
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -49,7 +42,6 @@ public class MunchHealth : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
-        Debug.Log("Munch died!");
     }
 
 
