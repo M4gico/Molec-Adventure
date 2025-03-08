@@ -1151,6 +1151,7 @@ MonoBehaviour:
   - {r: 0.8670778, g: 0.8670778, b: 0.8670778, a: 1}
   - {r: 0.481686, g: 0.481686, b: 0.481686, a: 1}
   - {r: 0.3862909, g: 0.3862909, b: 0.3862909, a: 1}
+  debugLinesGO: {fileID: 2031307390}
 --- !u!4 &2070328242
 Transform:
   m_ObjectHideFlags: 0
@@ -1282,8 +1283,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2031307391}
   - {fileID: 2070328242}
+  - {fileID: 2031307391}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
