@@ -38,7 +38,7 @@ public class MunchHealth : MonoBehaviour
         currentHealth -= damage;
         float colorValue = (currentHealth / maxHealth);
         colorValue = healthColorCurve.Evaluate(colorValue);
-        Debug.Log("Color value: " + colorValue);
+        //Debug.Log("Color value: " + colorValue);
         spriteRenderer.color = new Color(1, colorValue, colorValue);
         if (currentHealth <= 0)
         {
