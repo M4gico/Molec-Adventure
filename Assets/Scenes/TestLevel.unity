@@ -1747,6 +1747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   availableBlocksGO: {fileID: 1792682113}
   placedBlocksGO: {fileID: 869478419}
+  blockMenu: {fileID: 1362629801}
 --- !u!4 &1373154690
 Transform:
   m_ObjectHideFlags: 0
