@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: de21b190e8af20c4190750cfa9384e0a
+guid: c25fe5541026d314faaeacb35c80afa9
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -103,10 +103,10 @@ TextureImporter:
       name: Chronologie 1_0001_0
       rect:
         serializedVersion: 2
-        x: 229
-        y: 313
-        width: 170
-        height: 171
+        x: 356
+        y: 242
+        width: 273
+        height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

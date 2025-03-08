@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 22ceade298c243b499a18b9b17f33d10
+guid: ffb224fa7fb91f14daa9aca52658ea6c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6960082888821443194
-    second: Chronologie 1_0001_0
+      213: -3892760049438442857
+    second: Chronologie 1_0007_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Chronologie 1_0001_0
+      name: Chronologie 1_0007_0
       rect:
         serializedVersion: 2
-        x: 416
-        y: 195
-        width: 204
-        height: 216
+        x: 303
+        y: 182
+        width: 294
+        height: 268
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 685f58c1d71d86f90800000000000000
-      internalID: -6960082888821443194
+      spriteID: 79ab3691c532af9c0800000000000000
+      internalID: -3892760049438442857
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Chronologie 1_0001_0: -6960082888821443194
+      Chronologie 1_0007_0: -3892760049438442857
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
