@@ -6,6 +6,8 @@ public class DrawGrid : MonoBehaviour
 
     public Color[] colors = new Color[3];
 
+    public GameObject debugLinesGO;
+
     private void Start()
     {
 
@@ -75,6 +77,13 @@ public class DrawGrid : MonoBehaviour
                 lineRenderer.SetPosition(1, to_world(new Vector3(4 * 3 * 3, it, 0)));
             }
             lineRendererObject.transform.position = new Vector3(0, 0, z);
+        }
+
+        // Fix lines sprites
+        for (int i = 0; i < debugLinesGO.transform.childCount; i++)
+        {
+            Transform line = debugLinesGO.transform.GetChild(i);
+            line.GetComponent<SpriteRenderer>().color = colors[0];
         }
     }
 
