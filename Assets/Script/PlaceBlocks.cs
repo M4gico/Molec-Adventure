@@ -22,9 +22,10 @@ public class PlaceBlocks : MonoBehaviour {
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
 
             // Round world position to nearest cell
-            float cell_size = 10f / (3f * 3f * 3f);
-            worldPos.x = Mathf.Round(worldPos.x / cell_size) * cell_size;
-            worldPos.y = Mathf.Round(worldPos.y / cell_size) * cell_size;
+            float cell_size_x = 16f / 9f * 10f / (4f * 3f * 3f);
+            float cell_size_y = 10f / (3f * 3f * 3f);
+            worldPos.x = Mathf.Round(worldPos.x / cell_size_x) * cell_size_x;
+            worldPos.y = Mathf.Round(worldPos.y / cell_size_y) * cell_size_y;
             worldPos.z = -10.0f;
 
             // Set block position to cursor position
