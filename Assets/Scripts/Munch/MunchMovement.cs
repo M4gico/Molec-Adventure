@@ -2,16 +2,17 @@ using UnityEngine;
 
 public class MunchMovement : MonoBehaviour
 {
-    [SerializeField][Range(0f, 10f)] private float moveSpeed = 5f;
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float velocityThreshold = 0.1f;
+    [SerializeField] private float jumpForce = 0.1f;
+    [SerializeField] private float jumpThreshold = 0.1f;
 
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask walkLayer;
-    [SerializeField] private LayerMask rollLayer;
+    private bool isWalkLayer;
+    private bool canWalk;
+    private bool isWaiting;
 
-    [HideInInspector] public bool isWalk { set; private get; }
-
-    private RaycastHit2D hit;
     private Rigidbody2D rb;
+    private RaycastHit2D hit;
 
     public static MunchMovement instance;
 
@@ -29,7 +30,55 @@ public class MunchMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(moveSpeed, rb.linearVelocity.y);
+        Walk();
     }
 
+    [ContextMenu("Walk")]
+    private void Walk()
+    {
+        if (isWalkLayer)
+        {
+            if (canWalk)
+            {
+                rb.linearVelocity = new Vector2(moveSpeed, rb.linearVelocity.y);
+            }
+            else if (!isWaiting && Mathf.Abs(rb.linearVelocity.x) < velocityThreshold && !canWalk)
+            {
+                rb.AddForceY(jumpForce);
+                isWaiting = true;
+            }
+            else if (isWaiting && !canWalk)
+            {
+                Debug.DrawRay(transform.position, Vector2.down * jumpThreshold, Color.red);
+                hit = Physics2D.Raycast(transform.position, Vector2.down, jumpThreshold);
+                Debug.Log("distance: " + hit.distance + "collider:" + hit.collider);
+                if ((hit.distance < jumpThreshold) && (hit.collider != null))
+                {
+                    canWalk = true;
+                    isWaiting = false;
+                }
+            }
+        }
+    }
+
+    [ContextMenu("CanMoveFalse")]
+    private void CanMoveFalse()
+    {
+        canWalk = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //Layer 7 is the ramp layer
+        if (collision.gameObject.layer == 7)
+        {
+            isWalkLayer = false;
+            canWalk = false;
+        }
+        //Layer 6 is the ground layer
+        else if (collision.gameObject.layer == 6)
+        {
+            isWalkLayer = true;
+        }
+    }
 }
