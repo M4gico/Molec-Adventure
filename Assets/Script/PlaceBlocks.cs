@@ -6,6 +6,9 @@ public class PlaceBlocks : MonoBehaviour
     public GameObject placedBlocksGO;
     public GameObject blockMenu;
 
+    public float deltaMouseX;
+    public float deltaMouseY;
+
     private Vector3 cursorPosition = Vector3.zero;
     private GameObject selectedBlock = null;
 
@@ -82,6 +85,8 @@ public class PlaceBlocks : MonoBehaviour
     {
         // Get mouse position
         Vector3 mousePos = Input.mousePosition;
+        mousePos.x += deltaMouseX;
+        mousePos.y += deltaMouseY;
 
         // Convert mouse position to world position
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
