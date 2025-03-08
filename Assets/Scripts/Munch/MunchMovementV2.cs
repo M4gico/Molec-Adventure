@@ -13,13 +13,6 @@ public class MunchMovementV2 : MonoBehaviour
 
     private void Awake()
     {
-        /*if (instance != null)
-        {
-            Debug.LogWarning("More than one instance of MunchMovement found!");
-            return;
-        }
-        instance = this;*/
-
         rb = GetComponent<Rigidbody2D>();
         isOnLadder = false;
     }
