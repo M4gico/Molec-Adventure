@@ -3,9 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public string sceneName;
+
     public void StartGame()
     {
-        SceneManager.LoadScene("MunchScene");
+        SceneManager.LoadScene(sceneName);
         Time.timeScale = 1;
     }
 
