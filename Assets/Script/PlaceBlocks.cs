@@ -47,6 +47,7 @@ public class PlaceBlocks : MonoBehaviour {
                 Vector3 pos = new Vector3(cursorPosition.x, cursorPosition.y, -10.0f);
                 GameObject renderBlock = Instantiate(blockPrefabRender, pos, Quaternion.identity);
                 renderBlock.transform.localScale = new Vector3(0.37f, 0.37f, 1.0f);
+                renderBlock.layer = 6;
             }
         }
     }
