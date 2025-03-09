@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class Ladder : MonoBehaviour
 {
+    [SerializeField] private int jumpForce = 200;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             collision.GetComponent<MunchMovementV2>().isOnLadder = true;
-            //MunchMovementV2.instance.isOnLadder = true;
         }
     }
 
