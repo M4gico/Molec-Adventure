@@ -8,17 +8,19 @@ enum GameState
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject gridBuild;
-    public GameObject gridPlay;
+    public GameObject gridBuildGO;
+    public GameObject gridPlayGO;
 
-    public GameObject munchSpawner;
+    public GameObject munchSpawnerGO;
+    public GameObject placedBlocksPlayGO;
+    public GameObject placedBlocksBuildGO;
 
     private GameState gameState = GameState.BUILDING;
     private bool stateChanged = false;
 
     void Start() {
-        gridBuild.SetActive(true);
-        gridPlay.SetActive(false);
+        gridBuildGO.SetActive(true);
+        gridPlayGO.SetActive(false);
     }
 
     void Update()
@@ -28,27 +30,40 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        SpawnMunch munchSpawnerScript = munchSpawner.GetComponent<SpawnMunch>();
+        SpawnMunch munchSpawnerScript = munchSpawnerGO.GetComponent<SpawnMunch>();
         if (gameState == GameState.BUILDING)
         {
             // Remove all spawned munches
-            for (int i = 0; i < munchSpawner.transform.childCount; i++)
+            for (int i = 0; i < munchSpawnerGO.transform.childCount; i++)
             {
-                Destroy(munchSpawner.transform.GetChild(i).gameObject);
+                Destroy(munchSpawnerGO.transform.GetChild(i).gameObject);
+            }
+
+            // Remove all placed blocks
+            for (int i = 0; i < placedBlocksPlayGO.transform.childCount; i++)
+            {
+                Destroy(placedBlocksPlayGO.transform.GetChild(i).gameObject);
             }
 
             // Stop spawning munches
             munchSpawnerScript.stopSpawn();
 
             // Update grid visibility
-            gridBuild.SetActive(true);
-            gridPlay.SetActive(false);
+            gridBuildGO.SetActive(true);
+            gridPlayGO.SetActive(false);
         }
         else
         {
             // Update grid visibility
-            gridBuild.SetActive(false);
-            gridPlay.SetActive(true);
+            gridBuildGO.SetActive(false);
+            gridPlayGO.SetActive(true);
+
+            // Copy all placed blocks to the play grid
+            for (int i = 0; i < placedBlocksBuildGO.transform.childCount; i++)
+            {
+                Transform child = placedBlocksBuildGO.transform.GetChild(i);
+                GameObject newBlock = Instantiate(child.gameObject, placedBlocksPlayGO.transform);
+            }
 
             // Start spawning munches
             munchSpawnerScript.startSpawn();
