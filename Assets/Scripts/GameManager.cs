@@ -67,7 +67,6 @@ public class GameManager : MonoBehaviour
                         aliveMunchesCount++;
                     }
                 }
-
                 if (aliveMunchesCount - scoreMunchesCount == 0)
                 {
                     gameEndEvent();
