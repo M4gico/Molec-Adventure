@@ -66,20 +66,18 @@ public class MunchMovementV2 : MonoBehaviour
         {
             Walk();
         }
-        else
-        {
-            transform.position = Vector3.MoveTowards(transform.position, finalPosition, moveSpeed * Time.deltaTime);
-        }
     }
     
     public void StopMovement() {
-        Vector2 new_vel = transform.GetComponent<Rigidbody2D>().linearVelocity * 0.1f;
+        /*Vector2 new_vel = transform.GetComponent<Rigidbody2D>().linearVelocity * 0.1f;
         finalPosition = transform.position + new Vector3(new_vel.x, new_vel.y, 0);
         transform.GetComponent<CapsuleCollider2D>().enabled = false;
         transform.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
         transform.GetComponent<Rigidbody2D>().gravityScale = 0;
         shouldMove = false;
-        transform.GetComponent<MunchHealth>().decreaseRate = 0;
+        transform.GetComponent<MunchHealth>().decreaseRate = 0;*/
+        rb.linearVelocity = Vector2.zero;
+        shouldMove = false;
 
         // TODO: Add animation for munch
     }
@@ -88,7 +86,7 @@ public class MunchMovementV2 : MonoBehaviour
     {
         if (!isOnLadder)
         {
-            if(isTouchingWall)
+            if (isTouchingWall)
             {
                 isTouchingWall = false;
                 ChangeDirection();
@@ -101,7 +99,6 @@ public class MunchMovementV2 : MonoBehaviour
             rb.linearVelocity = new Vector2(0, climbSpeed);
             animator.SetBool("isRolling", false);
         }
-
     }
 
     private void ChangeDirection()
