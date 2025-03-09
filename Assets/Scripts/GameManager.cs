@@ -15,13 +15,25 @@ public class GameManager : MonoBehaviour
     public GameObject placedBlocksPlayGO;
     public GameObject placedBlocksBuildGO;
 
+    public GameObject canvasEndScreenGO;
+    public GameObject scoreTextGO;
+
     private GameState gameState = GameState.BUILDING;
     private bool stateChanged = false;
 
     private GameObject startGO;
     private GameObject finishGO;
 
+    private int scoreMunchesCount = 0;
+    private int waitFrames = 200;
+
     void Start() {
+        // Make sure the game is in the building state
+        gameState = GameState.BUILDING;
+
+        // Disable score canvas
+        canvasEndScreenGO.SetActive(false);
+
         // Set initial state to building
         gridBuildGO.SetActive(true);
         gridPlayGO.SetActive(false);
@@ -46,6 +58,33 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        // Check for end game
+        {
+            if (gameState == GameState.PLAYING && waitFrames <= 0)
+            {
+                int aliveMunchesCount = 0;
+                for (int i = 0; i < munchSpawnerGO.transform.childCount; i++)
+                {
+                    if (munchSpawnerGO.transform.GetChild(i).gameObject.activeSelf)
+                    {
+                        aliveMunchesCount++;
+                    }
+                }
+
+                if (aliveMunchesCount - scoreMunchesCount == 0)
+                {
+                    gameEndEvent();
+                }
+            }
+            if (waitFrames > 0 && gameState == GameState.PLAYING)
+            {
+                waitFrames--;
+            }
+        }
+
+
+
+        // Check if state has changed
         if (!stateChanged)
         {
             return;
@@ -128,6 +167,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void gameEndEvent()
+    {
+        // Activate end screen
+        canvasEndScreenGO.SetActive(true);
+
+        // Set score
+        string scoreText = scoreMunchesCount.ToString() + " / " + munchSpawnerGO.GetComponent<SpawnMunch>().getMunchesCount().ToString();
+        scoreTextGO.GetComponent<TMPro.TextMeshProUGUI>().text = scoreText;
+    }
+
     public void onPlayPressed()
     {
         if (gameState == GameState.PLAYING)
@@ -151,5 +200,12 @@ public class GameManager : MonoBehaviour
     public void onEndTriggerEntered(GameObject collided)
     {
         collided.GetComponent<MunchMovementV2>().StopMovement();
+        scoreMunchesCount++;
+    }
+
+    public void onEndToRestartLevel()
+    {
+        // Reload the scene
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
 }

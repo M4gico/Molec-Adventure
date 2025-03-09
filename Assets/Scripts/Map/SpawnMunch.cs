@@ -25,4 +25,9 @@ public class SpawnMunch : MonoBehaviour
     {
         StopAllCoroutines();
     }
+
+    public int getMunchesCount()
+    {
+        return numberSpawn;
+    }
 }
