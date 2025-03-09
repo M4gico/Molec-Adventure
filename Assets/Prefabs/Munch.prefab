@@ -32,8 +32,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -17.62, y: 5.89, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.38, y: 0.38, z: 0.38}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74,6 +74,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  laserDamage: 20
+  currentHealth: 0
 --- !u!114 &4323263982423665361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,7 +91,6 @@ MonoBehaviour:
   moveSpeed: 5
   climbSpeed: 5
   animator: {fileID: 4949578573236573590}
-  munchType: 0
 --- !u!212 &4250279421421110427
 SpriteRenderer:
   m_ObjectHideFlags: 0
