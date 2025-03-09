@@ -8,7 +8,7 @@ public class DrawGrid : MonoBehaviour
 
     public GameObject debugLinesGO;
 
-    private void Update()
+    private void Start()
     {
 
         gen_for(0);
