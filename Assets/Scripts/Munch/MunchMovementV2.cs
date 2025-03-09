@@ -14,8 +14,21 @@ public class MunchMovementV2 : MonoBehaviour
     }
 
     public bool isOnLadder { private get; set; }
+    public void StopMovement() {
+        Vector2 new_vel = transform.GetComponent<Rigidbody2D>().linearVelocity * 0.1f;
+        finalPosition = transform.position + new Vector3(new_vel.x, new_vel.y, 0);
+        transform.GetComponent<CapsuleCollider2D>().enabled = false;
+        transform.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+        transform.GetComponent<Rigidbody2D>().gravityScale = 0;
+        shouldMove = false;
+        transform.GetComponent<MunchHealth>().decreaseRate = 0;
+
+        // TODO: Add animation for munch
+    }
 
     private Rigidbody2D rb;
+    private bool shouldMove = true;
+    private Vector3 finalPosition;
 
     //public static MunchMovementV2 instance;
 
@@ -55,7 +68,14 @@ public class MunchMovementV2 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Walk();
+        if (shouldMove)
+        {
+            Walk();
+        }
+        else
+        {
+            transform.position = Vector3.MoveTowards(transform.position, finalPosition, moveSpeed * Time.deltaTime);
+        }
     }
 
     private void Walk()
