@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 331087105139018851}
   - component: {fileID: 4949578573236573590}
   - component: {fileID: 9135491674674038599}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Munch
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -75,6 +75,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   laserDamage: 20
+  decreaseRate: 8
   currentHealth: 0
 --- !u!114 &4323263982423665361
 MonoBehaviour:
@@ -91,6 +92,9 @@ MonoBehaviour:
   moveSpeed: 7.5
   climbSpeed: 5
   animator: {fileID: 4949578573236573590}
+  munchLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!212 &4250279421421110427
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -229,6 +233,6 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.17192364, y: 0.18061376}
-  m_Size: {x: 0.9193821, y: 2.4152598}
+  m_Offset: {x: 0.8953289, y: -1.4923328}
+  m_Size: {x: 0.7533513, y: 1.0379703}
   m_Direction: 0
