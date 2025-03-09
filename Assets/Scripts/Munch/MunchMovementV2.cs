@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MunchMovementV2 : MonoBehaviour
@@ -15,8 +14,10 @@ public class MunchMovementV2 : MonoBehaviour
     }
 
     public bool isOnLadder { private get; set; }
+    public bool isGoingLeft { get; private set; }
+    public bool isTouchingWall{ private get; set; }
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb { get; set; }
 
     //public static MunchMovementV2 instance;
 
@@ -40,7 +41,7 @@ public class MunchMovementV2 : MonoBehaviour
                 break;
         }
 
-        /*switch (munchType)
+        switch (munchType)
         {
             case typeMunch.BlueMunch:
                 animator.SetTrigger("BlueMunch");
@@ -51,7 +52,7 @@ public class MunchMovementV2 : MonoBehaviour
             case typeMunch.GreenMunch:
                 animator.SetTrigger("GreenMunch");
                 break;
-        }*/
+        }
     }
 
     private void FixedUpdate()
@@ -63,7 +64,12 @@ public class MunchMovementV2 : MonoBehaviour
     {
         if (!isOnLadder)
         {
-            rb.linearVelocity = new Vector2(moveSpeed, rb.linearVelocity.y);
+            if(isTouchingWall)
+            {
+                isTouchingWall = false;
+                ChangeDirection();
+            }
+            rb.AddForceX(moveSpeed);
             animator.SetBool("isRolling", true);
         }
         else
@@ -72,5 +78,24 @@ public class MunchMovementV2 : MonoBehaviour
             animator.SetBool("isRolling", false);
         }
 
+    }
+
+    private void ChangeDirection()
+    {
+        isGoingLeft = !isGoingLeft;
+        moveSpeed *= -1;
+        rb.AddForceX(moveSpeed*10);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            bool isPlayerGoingLeft = collision.gameObject.GetComponent<MunchMovementV2>().isGoingLeft;
+            if(isPlayerGoingLeft && !isGoingLeft)
+            {
+                ChangeDirection();
+            }
+        }
     }
 }
