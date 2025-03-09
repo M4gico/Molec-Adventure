@@ -13,8 +13,15 @@ public class MoveBlockMenu : MonoBehaviour
 
     void Start()
     {
-        blockMenuGO.transform.position = new Vector3(openValueX, blockMenuGO.transform.position.y, blockMenuGO.transform.position.z);
+        // Open on start
+        // blockMenuGO.transform.position = new Vector3(openValueX, blockMenuGO.transform.position.y, blockMenuGO.transform.position.z);
+        // targetPosition = blockMenuGO.transform.position;
+
+        // Do not open on start
+        blockMenuGO.transform.position = new Vector3(closedValueX, blockMenuGO.transform.position.y, blockMenuGO.transform.position.z);
         targetPosition = blockMenuGO.transform.position;
+        firstOpen = false;
+        isOpen = false;
     }
 
     void Update()
