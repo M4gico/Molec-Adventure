@@ -74,8 +74,8 @@ public class PlaceBlocks : MonoBehaviour
             selectedBlock.transform.localScale = new Vector3(0.37f, 0.37f, 1.0f);
 
             // Change sprite renderer material
-            Material wireframeMaterial = selectedBlock.GetComponent<BlockGOHolder>().wireframeMaterial;
-            selectedBlock.GetComponentsInChildren<SpriteRenderer>()[0].material = wireframeMaterial;
+            Sprite wireframeSprite = selectedBlock.GetComponent<BlockGOHolder>().wireframeSprite;
+            selectedBlock.GetComponentsInChildren<SpriteRenderer>()[0].sprite = wireframeSprite;
             return true;
         }
         return false;
@@ -96,7 +96,7 @@ public class PlaceBlocks : MonoBehaviour
         float cell_size_y = 10f / (3f * 3f * 3f);
         worldPos.x = Mathf.Round(worldPos.x / cell_size_x) * cell_size_x;
         worldPos.y = Mathf.Round(worldPos.y / cell_size_y) * cell_size_y;
-        worldPos.z = -10.0f;
+        worldPos.z = -40.0f;
 
         // Set block position to cursor position
         cursorPosition = worldPos;
@@ -144,8 +144,9 @@ public class PlaceBlocks : MonoBehaviour
             selectedBlock.layer = 6;
 
             // Change sprite renderer material
-            Material renderMaterial = selectedBlock.GetComponent<BlockGOHolder>().renderMaterial;
-            selectedBlock.GetComponentsInChildren<SpriteRenderer>()[0].material = renderMaterial;
+
+            Sprite renderSprite = selectedBlock.GetComponent<BlockGOHolder>().renderSprite;
+            selectedBlock.GetComponentsInChildren<SpriteRenderer>()[0].sprite = renderSprite;
             selectedBlock.transform.parent = placedBlocksGO.transform;
 
             selectedBlock = null;

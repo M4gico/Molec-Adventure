@@ -5,7 +5,6 @@ public class MunchMovementV2 : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float climbSpeed = 5f;
     [SerializeField] private Animator animator;
-    [SerializeField] private LayerMask munchLayer;
     public typeMunch munchType { get; private set; }
     public enum typeMunch
     {
@@ -24,8 +23,6 @@ public class MunchMovementV2 : MonoBehaviour
     public bool isTouchingWall{ private get; set; }
 
     public Rigidbody2D rb { get; set; }
-    private Collider2D colliderBox;
-    private float time;
 
     //public static MunchMovementV2 instance;
 
@@ -33,36 +30,22 @@ public class MunchMovementV2 : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        colliderBox = GetComponent<Collider2D>();
         isOnLadder = false;
 
         int randomNumber = Random.Range(0, 3);
         switch (randomNumber)
         {
             case 0:
-                munchType = typeMunch.BlueMunch;
+                animator.SetTrigger("BlueMunch");
                 break;
             case 1:
-                munchType = typeMunch.RedMunch;
+                animator.SetTrigger("RedMunch");
                 break;
             case 2:
-                munchType = typeMunch.GreenMunch;
+                animator.SetTrigger("GreenMunch");
                 break;
         }
 
-        SetTriggerAnim();
-    }
-
-    private void FixedUpdate()
-    {
-        if (shouldMove)
-        {
-            Walk();
-        }
-    }
-
-    private void SetTriggerAnim()
-    {
         switch (munchType)
         {
             case typeMunch.BlueMunch:
@@ -76,6 +59,14 @@ public class MunchMovementV2 : MonoBehaviour
                 break;
         }
     }
+
+    private void FixedUpdate()
+    {
+        if (shouldMove)
+        {
+            Walk();
+        }
+    }
     
     public void StopMovement() {
         /*Vector2 new_vel = transform.GetComponent<Rigidbody2D>().linearVelocity * 0.1f;
@@ -87,30 +78,14 @@ public class MunchMovementV2 : MonoBehaviour
         transform.GetComponent<MunchHealth>().decreaseRate = 0;*/
         rb.linearVelocity = Vector2.zero;
         shouldMove = false;
-        //Exclude collider of others Munches
-        colliderBox.excludeLayers = munchLayer;
 
-        SetTriggerAnim();
+        // TODO: Add animation for munch
     }
 
     private void Walk()
     {
         if (!isOnLadder)
         {
-            if(Mathf.Abs(rb.linearVelocity.x) < 0.1f)
-            {
-                time += Time.deltaTime;
-                if (time > 0.2f)
-                {
-                    rb.linearVelocity = new Vector2(2, rb.linearVelocity.y);
-                    time = 0;
-                }
-            }
-            else
-            {
-                time = 0;
-            }
-
             if (isTouchingWall)
             {
                 isTouchingWall = false;
