@@ -31,14 +31,26 @@ public class GameManager : MonoBehaviour
         SpawnMunch munchSpawnerScript = munchSpawner.GetComponent<SpawnMunch>();
         if (gameState == GameState.BUILDING)
         {
+            // Remove all spawned munches
+            for (int i = 0; i < munchSpawner.transform.childCount; i++)
+            {
+                Destroy(munchSpawner.transform.GetChild(i).gameObject);
+            }
+
+            // Stop spawning munches
+            munchSpawnerScript.stopSpawn();
+
+            // Update grid visibility
             gridBuild.SetActive(true);
             gridPlay.SetActive(false);
-            munchSpawnerScript.stopSpawn();
         }
         else
         {
+            // Update grid visibility
             gridBuild.SetActive(false);
             gridPlay.SetActive(true);
+
+            // Start spawning munches
             munchSpawnerScript.startSpawn();
         }
         stateChanged = false;
