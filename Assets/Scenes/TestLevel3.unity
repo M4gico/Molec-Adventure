@@ -2550,6 +2550,7 @@ GameObject:
   - component: {fileID: 559035376}
   - component: {fileID: 559035379}
   - component: {fileID: 559035380}
+  - component: {fileID: 559035381}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2689,6 +2690,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nonRigidbodyVelocity: 0
   attenuationObject: {fileID: 0}
+--- !u!114 &559035381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559035375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1042440555
+      Data2: 1332843064
+      Data3: 694287233
+      Data4: -1088301600
+    Path: event:/Level Music
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &599935103
 GameObject:
   m_ObjectHideFlags: 0
@@ -11147,7 +11179,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.1963768, y: 0}
+  m_Offset: {x: -5.847762, y: -1.3240774}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -11157,7 +11189,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.6072464, y: 1}
+  m_Size: {x: 1.9048572, y: 3.6481547}
   m_EdgeRadius: 0
 --- !u!114 &1365217114
 MonoBehaviour:
@@ -13390,7 +13422,7 @@ Transform:
   m_GameObject: {fileID: 1996324676}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.74, y: 1.19, z: 0}
+  m_LocalPosition: {x: 7.77, y: 1.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14148,7 +14180,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -10
-  m_Sprite: {fileID: -494788366713650515, guid: 3c085ea7288e1114a9252e4ae3bfed11, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3c085ea7288e1114a9252e4ae3bfed11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -117,7 +117,7 @@ MonoBehaviour:
   StudioPath: parameter:/Game Phase
   Min: 0
   Max: 1
-  Default: 0
+  Default: 1
   ID:
     data1: 622639417
     data2: 351657908
@@ -193,7 +193,7 @@ MonoBehaviour:
   Path: FMODBuilds/Build/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638771206722918203
+  lastModified: 638771282188088122
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -228,7 +228,7 @@ MonoBehaviour:
   - {fileID: -386103864156473324}
   StringsBanks:
   - {fileID: 8232895827472252738}
-  cacheTime: 638771206722952285
+  cacheTime: 638771282188088122
   cacheVersion: 131846
 --- !u!114 &356672088501933034
 MonoBehaviour:
@@ -401,7 +401,7 @@ MonoBehaviour:
   StudioPath: 
   Min: 0
   Max: 1
-  Default: 0
+  Default: 1
   ID:
     data1: 622639417
     data2: 351657908
@@ -453,7 +453,7 @@ MonoBehaviour:
   Path: FMODBuilds/Build/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638771206722952285
+  lastModified: 638771253798817702
   FileSizes:
   - Name: 
     Value: 1288

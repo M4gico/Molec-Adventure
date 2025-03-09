@@ -172,7 +172,7 @@ public class GameManager : MonoBehaviour
     private void gameEndEvent()
     {
         // Activate end screen
-        canvasEndScreenGO.SetActive(true);
+        //canvasEndScreenGO.SetActive(true);
 
         // Set score
         string scoreText = scoreMunchesCount.ToString() + " / " + munchSpawnerGO.GetComponent<SpawnMunch>().getMunchesCount().ToString();
