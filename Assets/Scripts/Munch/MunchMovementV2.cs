@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MunchMovementV2 : MonoBehaviour
@@ -5,8 +6,8 @@ public class MunchMovementV2 : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float climbSpeed = 5f;
     [SerializeField] private Animator animator;
-    [SerializeField] private typeMunch munchType;
-    private enum typeMunch
+    public typeMunch munchType { get; private set; }
+    public enum typeMunch
     {
         BlueMunch,
         RedMunch,
@@ -63,10 +64,12 @@ public class MunchMovementV2 : MonoBehaviour
         if (!isOnLadder)
         {
             rb.linearVelocity = new Vector2(moveSpeed, rb.linearVelocity.y);
+            animator.SetBool("isRolling", true);
         }
         else
         {
             rb.linearVelocity = new Vector2(0, climbSpeed);
+            animator.SetBool("isRolling", false);
         }
 
     }

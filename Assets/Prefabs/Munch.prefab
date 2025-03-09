@@ -56,34 +56,24 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.3017928
-      outSlope: 0.3017928
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.7072157
-      value: 0.21343262
-      inSlope: 1.0000001
-      outSlope: 1.0000001
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1
-      outSlope: 1
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  decreaseRate: 10
 --- !u!114 &4323263982423665361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,6 +88,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   climbSpeed: 5
+  animator: {fileID: 4949578573236573590}
+  munchType: 0
 --- !u!212 &4250279421421110427
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -142,12 +134,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 469fcab41503d2a4c95428274e5b726d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: acec3a3179c02bc4283011bf1c021dc0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.005, y: 3.92}
+  m_Size: {x: 4.145, y: 4.125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

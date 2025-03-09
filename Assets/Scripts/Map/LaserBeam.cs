@@ -9,7 +9,6 @@ public class LaserBeam : MonoBehaviour
         GreenLaser,
         BlueLaser
     }
-    [SerializeField] private float changeValue;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,11 +17,13 @@ public class LaserBeam : MonoBehaviour
             switch (type)
             {
                 case laserType.RedLaser:
-                    
+                    collision.GetComponent<MunchHealth>().AttackByLaser("RedMunch");
                     break;
                 case laserType.GreenLaser:
+                    collision.GetComponent<MunchHealth>().AttackByLaser("GreenMunch");
                     break;
                 case laserType.BlueLaser:
+                    collision.GetComponent<MunchHealth>().AttackByLaser("BlueMunch");
                     break;
             }
         }
