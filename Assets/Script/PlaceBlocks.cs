@@ -74,8 +74,8 @@ public class PlaceBlocks : MonoBehaviour
             selectedBlock.transform.localScale = new Vector3(0.37f, 0.37f, 1.0f);
 
             // Change sprite renderer material
-            Material wireframeMaterial = selectedBlock.GetComponent<BlockGOHolder>().wireframeMaterial;
-            selectedBlock.GetComponentsInChildren<SpriteRenderer>()[0].material = wireframeMaterial;
+            Sprite wireframeSprite = selectedBlock.GetComponent<BlockGOHolder>().wireframeSprite;
+            selectedBlock.GetComponentsInChildren<SpriteRenderer>()[0].sprite = wireframeSprite;
             return true;
         }
         return false;
@@ -144,8 +144,9 @@ public class PlaceBlocks : MonoBehaviour
             selectedBlock.layer = 6;
 
             // Change sprite renderer material
-            Material renderMaterial = selectedBlock.GetComponent<BlockGOHolder>().renderMaterial;
-            selectedBlock.GetComponentsInChildren<SpriteRenderer>()[0].material = renderMaterial;
+
+            Sprite renderSprite = selectedBlock.GetComponent<BlockGOHolder>().renderSprite;
+            selectedBlock.GetComponentsInChildren<SpriteRenderer>()[0].sprite = renderSprite;
             selectedBlock.transform.parent = placedBlocksGO.transform;
 
             selectedBlock = null;
