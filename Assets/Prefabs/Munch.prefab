@@ -75,6 +75,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   laserDamage: 20
+  decreaseRate: 9
   currentHealth: 0
 --- !u!114 &4323263982423665361
 MonoBehaviour:

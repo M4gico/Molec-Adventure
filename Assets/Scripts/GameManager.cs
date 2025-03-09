@@ -31,9 +31,6 @@ public class GameManager : MonoBehaviour
         // Make sure the game is in the building state
         gameState = GameState.BUILDING;
 
-        // Disable score canvas
-        canvasEndScreenGO.SetActive(false);
-
         // Set initial state to building
         gridBuildGO.SetActive(true);
         gridPlayGO.SetActive(false);

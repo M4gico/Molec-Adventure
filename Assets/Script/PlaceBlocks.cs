@@ -96,7 +96,7 @@ public class PlaceBlocks : MonoBehaviour
         float cell_size_y = 10f / (3f * 3f * 3f);
         worldPos.x = Mathf.Round(worldPos.x / cell_size_x) * cell_size_x;
         worldPos.y = Mathf.Round(worldPos.y / cell_size_y) * cell_size_y;
-        worldPos.z = -10.0f;
+        worldPos.z = -40.0f;
 
         // Set block position to cursor position
         cursorPosition = worldPos;
