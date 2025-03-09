@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 
 enum GameState
@@ -18,6 +19,9 @@ public class GameManager : MonoBehaviour
     public GameObject canvasEndScreenGO;
     public GameObject scoreTextGO;
 
+    [SerializeField] private EventReference uiPLay;
+    [SerializeField] private EventReference uiRestart;
+
     private GameState gameState = GameState.BUILDING;
     private bool stateChanged = false;
 
@@ -26,6 +30,8 @@ public class GameManager : MonoBehaviour
 
     private int scoreMunchesCount = 0;
     private int waitFrames = 200;
+
+
 
     void Start() {
         // Make sure the game is in the building state
@@ -175,6 +181,7 @@ public class GameManager : MonoBehaviour
 
     public void onPlayPressed()
     {
+        RuntimeManager.PlayOneShot(uiPLay);
         if (gameState == GameState.PLAYING)
         {
             return;
@@ -185,6 +192,7 @@ public class GameManager : MonoBehaviour
 
     public void onRestartPressed()
     {
+        RuntimeManager.PlayOneShot(uiRestart);
         if (gameState == GameState.BUILDING)
         {
             return;

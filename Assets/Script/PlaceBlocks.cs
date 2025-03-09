@@ -1,4 +1,5 @@
 using UnityEngine;
+using FMODUnity;
 
 public class PlaceBlocks : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class PlaceBlocks : MonoBehaviour
 
     private Vector3 cursorPosition = Vector3.zero;
     private GameObject selectedBlock = null;
+
+    [SerializeField] private EventReference PlaceSound;
+    [SerializeField] private EventReference TakeSound;
 
 
     void Update()
@@ -39,6 +43,7 @@ public class PlaceBlocks : MonoBehaviour
 
     bool select_block()
     {
+
         // Get mouse position
         Vector3 mousePos = Input.mousePosition;
 
@@ -65,6 +70,7 @@ public class PlaceBlocks : MonoBehaviour
 
     bool select_child(Transform block, Vector3 worldPos)
     {
+        RuntimeManager.PlayOneShot(TakeSound);
         worldPos.z = block.position.z;
         if (block.GetChild(0).transform.GetComponent<Collider2D>().bounds.Contains(worldPos))
         {
@@ -108,6 +114,7 @@ public class PlaceBlocks : MonoBehaviour
     {
         bool collidesWithMenu = false;
         {
+            RuntimeManager.PlayOneShot(PlaceSound);
             // Get mouse position
             Vector3 mousePos = Input.mousePosition;
 

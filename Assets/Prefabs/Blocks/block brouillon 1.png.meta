@@ -197,7 +197,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      block brouillon 1_0: -3183517196901102033
+      block brouillon 1_1: -2064672004004017714
+      block brouillon 1_2: 4730531634467273661
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
