@@ -1,4 +1,5 @@
 using UnityEngine;
+using FMODUnity;
 
 public class MunchHealth : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class MunchHealth : MonoBehaviour
     public float decreaseRate = 4f;
 
     private float decreaseRateInitial;
+
+    [SerializeField] private EventReference healSound;
+    [SerializeField] private EventReference damageSound;
+
 
     [SerializeField] private float currentHealth;
     private SpriteRenderer spriteRenderer;
@@ -46,6 +51,7 @@ public class MunchHealth : MonoBehaviour
 
     private void TakeDamage(float damage)
     {
+        RuntimeManager.PlayOneShot(damageSound);
         currentHealth -= damage;
         float colorValue = (currentHealth / maxHealth);
         colorValue = healthColorCurve.Evaluate(colorValue);
@@ -58,6 +64,7 @@ public class MunchHealth : MonoBehaviour
 
     private void Heal(float healAmount)
     {
+        RuntimeManager.PlayOneShot(healSound);
         currentHealth += healAmount;
         if (currentHealth > maxHealth)
         {

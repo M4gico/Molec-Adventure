@@ -1,4 +1,5 @@
 using UnityEngine;
+using FMODUnity;
 
 public class LaserBeam : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class LaserBeam : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            RuntimeManager.PlayOneShot("Events/Level Music");
             switch (type)
             {
                 case laserType.RedLaser:
