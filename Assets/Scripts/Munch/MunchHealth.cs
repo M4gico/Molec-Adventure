@@ -5,7 +5,7 @@ public class MunchHealth : MonoBehaviour
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private AnimationCurve healthColorCurve;
     [SerializeField] private float laserDamage = 20f;
-    public float decreaseRate { private get; set; } = 4f;
+    public float decreaseRate = 4f;
 
     private float decreaseRateInitial;
 
@@ -50,7 +50,6 @@ public class MunchHealth : MonoBehaviour
         float colorValue = (currentHealth / maxHealth);
         colorValue = healthColorCurve.Evaluate(colorValue);
         spriteRenderer.color = new Color(1, colorValue, colorValue);
-        Debug.Log(currentHealth);
         if (currentHealth <= 0)
         {
             Die();
