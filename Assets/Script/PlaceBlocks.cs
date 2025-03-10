@@ -143,6 +143,7 @@ public class PlaceBlocks : MonoBehaviour
         if (collidesWithMenu)
         {
             // Set block as child of block menu
+            selectedBlock.transform.position = new Vector3(cursorPosition.x, cursorPosition.y, -40.0f);
             selectedBlock.transform.parent = availableBlocksGO.transform;
             selectedBlock = null;
         }
@@ -151,16 +152,12 @@ public class PlaceBlocks : MonoBehaviour
             selectedBlock.layer = 6;
 
             // Change sprite renderer material
-
-            Sprite renderSprite = selectedBlock.GetComponent<BlockGOHolder>().renderSprite;
-            selectedBlock.GetComponentsInChildren<SpriteRenderer>()[0].sprite = renderSprite;
+            // Sprite renderSprite = selectedBlock.GetComponent<BlockGOHolder>().renderSprite;
+            // selectedBlock.GetComponentsInChildren<SpriteRenderer>()[0].sprite = renderSprite;
+            selectedBlock.transform.position = new Vector3(cursorPosition.x, cursorPosition.y, -2.0f);
             selectedBlock.transform.parent = placedBlocksGO.transform;
 
             selectedBlock = null;
         }
-
-
-
-
     }
 }

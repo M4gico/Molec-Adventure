@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class Ladder : MonoBehaviour
 {
-    [SerializeField] private int jumpForce = 200;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
+            // Kill x velocity
+            Debug.Log("Ladder collision");
+            collision.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0.2f);
             collision.GetComponent<MunchMovementV2>().isOnLadder = true;
         }
     }

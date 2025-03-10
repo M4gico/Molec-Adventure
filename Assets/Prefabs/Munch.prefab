@@ -76,6 +76,20 @@ MonoBehaviour:
     m_RotationOrder: 4
   laserDamage: 20
   decreaseRate: 9
+  healSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  damageSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   currentHealth: 0
 --- !u!114 &4323263982423665361
 MonoBehaviour:
@@ -89,8 +103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808b0d6a458ceb14688d78148bae6f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7.5
-  climbSpeed: 5
+  moveSpeed: 5.91
+  climbSpeed: 1.14
   animator: {fileID: 4949578573236573590}
 --- !u!212 &4250279421421110427
 SpriteRenderer:
@@ -159,11 +173,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Mass: 1.17
+  m_LinearDamping: 0.03
+  m_AngularDamping: 0.62
+  m_GravityScale: 0.75
+  m_Material: {fileID: 6200000, guid: 8f8021e0a8f32294da973320dbd125d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

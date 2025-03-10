@@ -78,6 +78,7 @@ public class MunchMovementV2 : MonoBehaviour
         transform.GetComponent<MunchHealth>().decreaseRate = 0;*/
         rb.linearVelocity = Vector2.zero;
         shouldMove = false;
+        animator.SetBool("isRolling", false);
 
         // TODO: Add animation for munch
     }
@@ -92,11 +93,13 @@ public class MunchMovementV2 : MonoBehaviour
                 ChangeDirection();
             }
             rb.AddForceX(moveSpeed);
+            rb.AddForceY(moveSpeed * 0.1f);
             animator.SetBool("isRolling", true);
         }
         else
         {
             rb.linearVelocity = new Vector2(0, climbSpeed);
+            rb.AddForceY(climbSpeed*10);
             animator.SetBool("isRolling", false);
         }
     }

@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     public GameObject canvasEndScreenGO;
     public GameObject scoreTextGO;
 
+    public GameObject backgroundGOPlay;
+    public GameObject backgroundGOBuild;
+
     [SerializeField] private EventReference uiPLay;
     [SerializeField] private EventReference uiRestart;
 
@@ -34,10 +37,10 @@ public class GameManager : MonoBehaviour
 
 
     void Start() {
-        // Make sure the game is in the building state
-        gameState = GameState.BUILDING;
-
         // Set initial state to building
+        gameState = GameState.BUILDING;
+        backgroundGOPlay.SetActive(false);
+        backgroundGOBuild.SetActive(true);
         gridBuildGO.SetActive(true);
         gridPlayGO.SetActive(false);
 
@@ -107,6 +110,14 @@ public class GameManager : MonoBehaviour
                 Destroy(placedBlocksPlayGO.transform.GetChild(i).gameObject);
             }
 
+            // Update sprite of all placed blocks tagged "block"
+            GameObject[] blocks = GameObject.FindGameObjectsWithTag("Block");
+            foreach (GameObject block in blocks)
+            {
+                Sprite wireframesprite = block.GetComponent<BlockGOHolder>().wireframeSprite;
+                block.GetComponentsInChildren<SpriteRenderer>()[0].sprite = wireframesprite;
+            }
+
             // Stop spawning munches
             munchSpawnerScript.stopSpawn();
 
@@ -115,12 +126,16 @@ public class GameManager : MonoBehaviour
             swapFlagStates(playMode);
 
             // Update grid visibility
+            backgroundGOPlay.SetActive(false);
+            backgroundGOBuild.SetActive(true);
             gridBuildGO.SetActive(true);
             gridPlayGO.SetActive(false);
         }
         else
         {
             // Update grid visibility
+            backgroundGOPlay.SetActive(true);
+            backgroundGOBuild.SetActive(false);
             gridBuildGO.SetActive(false);
             gridPlayGO.SetActive(true);
 
@@ -129,6 +144,14 @@ public class GameManager : MonoBehaviour
             {
                 Transform child = placedBlocksBuildGO.transform.GetChild(i);
                 GameObject newBlock = Instantiate(child.gameObject, placedBlocksPlayGO.transform);
+            }
+
+            // Update sprite of all placed blocks tagged "block"
+            GameObject[] blocks = GameObject.FindGameObjectsWithTag("Block");
+            foreach (GameObject block in blocks)
+            {
+                Sprite renderSprite = block.GetComponent<BlockGOHolder>().renderSprite;
+                block.GetComponentsInChildren<SpriteRenderer>()[0].sprite = renderSprite;
             }
 
             // Flip flag states
