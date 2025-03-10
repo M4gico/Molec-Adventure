@@ -1830,7 +1830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3261206164297789387, guid: 347edde4a6079d941a0416d0f8c24853, type: 3}
       propertyPath: sceneName
-      value: TestLevel3
+      value: TestLevelFinal
       objectReference: {fileID: 0}
     - target: {fileID: 3261206164297789387, guid: 347edde4a6079d941a0416d0f8c24853, type: 3}
       propertyPath: creditsPanel
