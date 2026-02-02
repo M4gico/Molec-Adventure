@@ -1,2 +1,2 @@
 # GameJamMirror
- Video game for scientif game jam Strasbourg 2025
+ Video game for scientic game jam Strasbourg 2025
